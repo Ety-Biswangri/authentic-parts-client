@@ -1,0 +1,50 @@
+[
+    {
+        "name": "High-voltage Transformer",
+        "image": "https://raw.githubusercontent.com/Ety-Biswangri/images/main/microwave/transformer.jpg",
+        "description": "",
+        "minOrderQuantity": 50,
+        "availableQuantiy": 20,
+        "price": 10
+    },
+    {
+        "name": "Cooling Fan",
+        "image": "https://raw.githubusercontent.com/Ety-Biswangri/images/main/microwave/fan.jpg",
+        "description": "",
+        "minOrderQuantity": 50,
+        "availableQuantiy": 20,
+        "price": 10
+    },
+    {
+        "name": "Cooking Cavity",
+        "image": "https://raw.githubusercontent.com/Ety-Biswangri/images/main/microwave/cavity.jpg",
+        "description": "",
+        "minOrderQuantity": 50,
+        "availableQuantiy": 20,
+        "price": 10
+    },
+    {
+        "name": "Waveguide",
+        "image": "https://raw.githubusercontent.com/Ety-Biswangri/images/main/microwave/waveguide.jpg",
+        "description": "",
+        "minOrderQuantity": 50,
+        "availableQuantiy": 20,
+        "price": 10
+    },
+    {
+        "name": "Turntable",
+        "image": "https://raw.githubusercontent.com/Ety-Biswangri/images/main/microwave/turntable.jpg",
+        "description": "",
+        "minOrderQuantity": 50,
+        "availableQuantiy": 20,
+        "price": 10
+    },
+    {
+        "name": "Magnetron",
+        "image": "https://raw.githubusercontent.com/Ety-Biswangri/images/main/microwave/magnetron.jpg",
+        "description": "",
+        "minOrderQuantity": 50,
+        "availableQuantiy": 20,
+        "price": 10
+    }
+]
