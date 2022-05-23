@@ -11,14 +11,16 @@ const PartsItem = () => {
         return <Loading></Loading>;
     }
 
-    console.log(parts);
+    const slicedParts = parts.slice(-6);
+
+    console.log(slicedParts);
 
     return (
         <div className='my-10 lg:mt-0 lg:px-20'>
             <h2 className='text-center lg:text-3xl text-2xl font-bold lg:mb-10 sm:mb-5'>Microwave Oven Parts</h2>
             <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5'>
                 {
-                    parts.map(part => <PartItem key={part._id} part={part}></PartItem>)
+                    slicedParts.map(slicedParts => <PartItem key={slicedParts._id} part={slicedParts}></PartItem>)
                 }
             </div>
         </div>

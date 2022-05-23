@@ -10,8 +10,11 @@ const PartItem = ({ part }) => {
                 <img src={image} alt="Shoes" class="rounded-xl" />
             </figure>
             <div class="card-body items-center text-center">
-                <h2 class="card-title">Shoes!</h2>
-                <p>If a dog chews shoes whose shoes does he choose?</p>
+                <h2 class="card-title">{name}</h2>
+                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Vel molestias officiis, sapiente omnis saepe laboriosam libero, qui, officia quas reiciendis quam hic. Odit consequuntur amet deserunt et unde id corporis!</p>
+                <p>Minimum Order Quantity: {minOrderQuantity}</p>
+                <p>Available Quantity: {availableQuantiy}</p>
+                <p>Price (per unit): ${price}</p>
                 <div class="card-actions">
                     <button class="btn btn-primary">Buy Now</button>
                 </div>
