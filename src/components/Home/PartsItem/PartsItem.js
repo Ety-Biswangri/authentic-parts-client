@@ -17,7 +17,7 @@ const PartsItem = () => {
 
     return (
         <div className='my-10 lg:mt-0 lg:px-20'>
-            <h2 className='text-center lg:text-3xl text-2xl font-bold lg:mb-10 sm:mb-5'>Microwave Oven Parts</h2>
+            <h2 className='text-center lg:text-3xl text-2xl font-bold lg:mb-10 sm:mb-5 uppercase'>Microwave Oven Parts</h2>
             <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5'>
                 {
                     slicedParts.map(slicedParts => <PartItem key={slicedParts._id} part={slicedParts}></PartItem>)
