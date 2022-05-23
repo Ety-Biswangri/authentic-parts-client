@@ -29,7 +29,7 @@ const PartItem = ({ part }) => {
                 </p>
 
                 <div class="card-actions mt-2">
-                    <button class="btn btn-primary text-white">Purchase Now</button>
+                    <button class="btn btn-primary text-white">Purchase</button>
                 </div>
             </div>
         </div >

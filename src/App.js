@@ -9,6 +9,7 @@ import LoginPage from './components/Login/LoginPage/LoginPage';
 import Register from './components/Login/Register/Register';
 import MyPortfolio from './components/MyPortfolio/MyPortfolio';
 import Blogs from './components/Blogs/Blogs';
+import NotFound from './components/NotFound/NotFound';
 
 function App() {
   return (
@@ -23,6 +24,7 @@ function App() {
           <Route path='/register' element={<Register></Register>}></Route>
           <Route path='/portfolio' element={<MyPortfolio></MyPortfolio>}></Route>
           <Route path='/blogs' element={<Blogs></Blogs>}></Route>
+          <Route path='*' element={<NotFound></NotFound>}></Route>
         </Routes>
       </div>
       <Footer></Footer>
