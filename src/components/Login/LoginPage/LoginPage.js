@@ -43,7 +43,7 @@ const LoginPage = () => {
 
 
     const onSubmit = data => {
-        console.log(data);
+        // console.log(data);
         signInWithEmailAndPassword(data.email, data.password);
     };
 

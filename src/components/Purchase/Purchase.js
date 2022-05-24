@@ -15,7 +15,11 @@ const Purchase = () => {
 
     const { data: order, isLoading } = useQuery(['purchase', id], () => fetch(url, {
         method: 'GET',
-    }).then(res => res.json()))
+        headers: {
+            authorization: `Bearer ${localStorage.getItem('accessToken')}`
+        }
+    })
+        .then(res => res.json()))
 
     if (isLoading) {
         return <Loading></Loading>;
