@@ -20,9 +20,14 @@ const Header = () => {
         }
         <li><Link to="/blogs">Blogs</Link></li>
         <li><Link to="/portfolio">My Portfolio</Link></li>
+        {
+            user && <li><Link to="/">{user.displayName}</Link></li>
+        }
         <li>
             {
-                user ? <button class="btn" style={{ backgroundColor: "lightblue", color: 'black' }} onClick={logOut}>Logout</button> : <Link to="/login">Login</Link>
+                user ?
+                    <button class="btn" style={{ backgroundColor: "lightblue", color: 'black' }} onClick={logOut}>Logout</button>
+                    : <Link to="/login">Login</Link>
             }
         </li>
     </>
@@ -41,7 +46,7 @@ const Header = () => {
                 <a class="btn btn-ghost normal-case text-xl lg:ml-20 text-white">Authentic Parts</a>
             </div>
             <div class="navbar-center hidden lg:flex text-white">
-                <ul class="menu menu-horizontal p-0 ml-32">
+                <ul class="menu menu-horizontal p-0 ml-12">
                     {headerItems}
                 </ul>
             </div>
