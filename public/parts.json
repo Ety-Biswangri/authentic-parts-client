@@ -1,7 +1,7 @@
 [
     {
         "name": "High-voltage Transformer",
-        "image": "https://raw.githubusercontent.com/Ety-Biswangri/images/main/microwave/transformer.jpg",
+        "image": "https://raw.githubusercontent.com/Ety-Biswangri/images/main/microwave/transformer.png",
         "description": "A high voltage transformer of a microwave oven has a structure for radiating heat efficiently.",
         "minOrderQuantity": 50,
         "availableQuantiy": 20,
@@ -9,7 +9,7 @@
     },
     {
         "name": "Cooling Fan",
-        "image": "https://raw.githubusercontent.com/Ety-Biswangri/images/main/microwave/fan.jpg",
+        "image": "https://raw.githubusercontent.com/Ety-Biswangri/images/main/microwave/fan.png",
         "description": "Cooling fan protects the electronic components as well as help the cooking area get rid of excess heat.",
         "minOrderQuantity": 50,
         "availableQuantiy": 20,
@@ -17,7 +17,7 @@
     },
     {
         "name": "Cooking Cavity",
-        "image": "https://raw.githubusercontent.com/Ety-Biswangri/images/main/microwave/cavity.jpg",
+        "image": "https://raw.githubusercontent.com/Ety-Biswangri/images/main/microwave/cavity.png",
         "description": "The stainless steel cavity facilitates better heating process and protection against leakage of microwave waves.",
         "minOrderQuantity": 50,
         "availableQuantiy": 20,
@@ -33,7 +33,7 @@
     },
     {
         "name": "Turntable",
-        "image": "https://raw.githubusercontent.com/Ety-Biswangri/images/main/microwave/turntable.jpg",
+        "image": "https://raw.githubusercontent.com/Ety-Biswangri/images/main/microwave/turntable.png",
         "description": "The turntable can turn in either direction when the microwave starts cooking.",
         "minOrderQuantity": 50,
         "availableQuantiy": 20,
@@ -41,7 +41,7 @@
     },
     {
         "name": "Magnetron",
-        "image": "https://raw.githubusercontent.com/Ety-Biswangri/images/main/microwave/magnetron.jpg",
+        "image": "https://raw.githubusercontent.com/Ety-Biswangri/images/main/microwave/magnetron.png",
         "description": "Magnetron is an important source of power in microwave ovens.",
         "minOrderQuantity": 50,
         "availableQuantiy": 20,
