@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { useForm } from 'react-hook-form';
 import { useQuery } from 'react-query';
@@ -14,6 +14,8 @@ const Purchase = () => {
 
     const { register, formState: { errors }, handleSubmit } = useForm();
 
+    const [agree, setAgree] = useState(false);
+
     const url = `http://localhost:5000/parts/${id}`;
 
     const { data: order, isLoading } = useQuery(['purchase', id], () => fetch(url, {
@@ -28,14 +30,12 @@ const Purchase = () => {
         return <Loading></Loading>;
     }
 
+    const { name, image, description, minOrderQuantity, availableQuantiy, price } = order;
+
     const onSubmit = async (formData) => {
         console.log(formData)
     };
 
-    console.log(order);
-    // console.log(user);
-
-    const { name, image, description, minOrderQuantity, availableQuantiy, price } = order;
 
     return (
         <div className='lg:px-20'>
@@ -54,7 +54,7 @@ const Purchase = () => {
                             <span className='font-bold'>Available Quantity:</span> {availableQuantiy}
                         </p>
                         <p class="py-2">
-                            <span className='font-bold'>Price:</span>  ${price}
+                            <span className='font-bold'>Price (per unit): </span>  ${price}
                         </p>
                         {/* <button class="btn btn-primary">Get Started</button> */}
                     </div>
@@ -62,7 +62,7 @@ const Purchase = () => {
             </div>
 
             <div className='mt-16 mb-14'>
-                <h2 className='text-center mb-5 font-semibold text-3xl'>Purchase Here</h2>
+                <h2 className='text-center mb-5 font-semibold text-3xl'>Purchase Order</h2>
                 <div className="flex justify-center w-full">
                     <div class="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
                         <div class="card-body">
@@ -77,16 +77,10 @@ const Purchase = () => {
                                         type="text"
                                         placeholder="Your name"
                                         className="input input-bordered w-full max-w-xs"
-                                        {...register("name", {
-                                            required: {
-                                                value: true,
-                                                message: 'Name is required'
-                                            }
-                                        })}
+                                        {...register("name")}
+                                        value={user?.displayName}
+                                        readOnly
                                     />
-                                    <label className="label">
-                                        {errors.name?.type === 'required' && <span className="label-text-alt text-red-500">{errors.name.message}</span>}
-                                    </label>
                                 </div>
 
                                 {/* email input field */}
@@ -99,51 +93,96 @@ const Purchase = () => {
                                         type="email"
                                         placeholder="Your email"
                                         className="input input-bordered w-full max-w-xs"
-                                        {...register("email", {
-                                            required: {
-                                                value: true,
-                                                message: 'Email is required'
-                                            },
-                                            pattern: {
-                                                value: /[a-z0-9]+@[a-z]+\.[a-z]{2,3}/,
-                                                message: 'Provide a valid email'
-                                            }
-                                        })}
+                                        {...register("email")}
+                                        value={user?.email}
+                                        readOnly
                                     />
-
-                                    <label className="label">
-                                        {errors.email?.type === 'required' && <span className="label-text-alt text-red-500">{errors.email.message}</span>}
-                                        {errors.email?.type === 'pattern' && <span className="label-text-alt text-red-500">{errors.email.message}</span>}
-                                    </label>
                                 </div>
 
-                                {/* password input field */}
+                                {/* address input field */}
                                 <div className="form-control">
                                     <label className="label">
-                                        <span className="label-text">Password</span>
+                                        <span className="label-text">Address</span>
                                     </label>
                                     <input
-                                        type="password"
-                                        placeholder="Password"
+                                        type="text"
+                                        placeholder="Address"
                                         className="input input-bordered w-full max-w-xs"
-                                        {...register("password", {
+                                        {...register("address", {
                                             required: {
                                                 value: true,
-                                                message: 'Password is required'
-                                            },
-                                            minLength: {
-                                                value: 6,
-                                                message: 'Must be 6 characters or longer'
+                                                message: 'Address is required'
                                             }
                                         })}
                                     />
                                     <label className="label">
-                                        {errors.password?.type === 'required' && <span className="label-text-alt text-red-500">{errors.password.message}</span>}
-                                        {errors.password?.type === 'minLength' && <span className="label-text-alt text-red-500">{errors.password.message}</span>}
+                                        {errors.address?.type === 'required' && <span className="label-text-alt text-red-500">{errors.address.message}</span>}
                                     </label>
                                 </div>
 
-                                <input className='btn w-full max-w-xs text-white' type="submit" value="Complete Purchase" />
+                                {/* phone input field */}
+                                <div className="form-control">
+                                    <label className="label">
+                                        <span className="label-text">Phone Number</span>
+                                    </label>
+                                    <input
+                                        type="text"
+                                        placeholder="Phone Number"
+                                        className="input input-bordered w-full max-w-xs"
+                                        {...register("phone", {
+                                            required: {
+                                                value: true,
+                                                message: 'Phone Number is required'
+                                            },
+                                            minLength: {
+                                                value: 11,
+                                                message: 'Must be 11 characters or longer'
+                                            }
+                                        })}
+                                    />
+                                    <label className="label">
+                                        {errors.phone?.type === 'required' && <span className="label-text-alt text-red-500">{errors.phone.message}</span>}
+                                        {errors.phone?.type === 'minLength' && <span className="label-text-alt text-red-500">{errors.phone.message}</span>}
+                                    </label>
+                                </div>
+
+                                {/* Order quantity input field */}
+                                <div className="form-control">
+                                    <label className="label">
+                                        <span className="label-text">Order Quantity</span>
+                                    </label>
+                                    <input
+                                        type="number"
+                                        defaultValue={minOrderQuantity}
+                                        className="input input-bordered w-full max-w-xs"
+                                        {...register("quantity", {
+                                            required: {
+                                                value: true,
+                                                message: 'Order Quantity is required'
+                                            },
+                                            min: {
+                                                value: minOrderQuantity,
+                                                message: `You can not purchase less than ${minOrderQuantity} quantity`
+                                            },
+                                            max: {
+                                                value: availableQuantiy,
+                                                message: `You can not purchase more than ${availableQuantiy} quantity`
+                                            }
+                                        })}
+                                    />
+                                    <label className="label">
+                                        {errors.quantity?.type === 'required' && <span className="label-text-alt text-red-500">{errors.quantity.message}</span>}
+                                        {errors.quantity?.type === 'min' || errors.quantity?.type === 'max' ?
+                                            <div className='flex flex-col items-center justify-center'>
+                                                <div>
+                                                    <span className="label-text-alt text-red-500">{errors.quantity.message}</span>
+                                                    <input disabled className='btn w-full max-w-xs text-white' type="submit" value="Purchase" />
+                                                </div>
+                                            </div> :
+                                            <input className='btn w-full max-w-xs text-white' type="submit" value="Purchase" />
+                                        }
+                                    </label>
+                                </div>
                             </form>
                         </div>
                     </div>
