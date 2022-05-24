@@ -5,6 +5,7 @@ import SocialLogin from '../SocialLogin/SocialLogin';
 import { useCreateUserWithEmailAndPassword, useUpdateProfile } from 'react-firebase-hooks/auth';
 import auth from '../../../firebase.init';
 import Loading from '../../Shared/Loading/Loading';
+import useToken from '../../../hooks/useToken';
 
 const Register = () => {
     const { register, formState: { errors }, handleSubmit } = useForm();
@@ -16,28 +17,29 @@ const Register = () => {
     ] = useCreateUserWithEmailAndPassword(auth);
 
     const [updateProfile, updating, updateProfileError] = useUpdateProfile(auth);
+    const [token] = useToken(user);
+
     const navigate = useNavigate();
-    const location = useLocation();
-    let from = location?.state?.from?.pathname || '/';
 
 
-    if (loading) {
+    if (loading || updating) {
         return <Loading></Loading>;
     }
 
     let errorMessage;
 
-    if (error) {
-        errorMessage = <p className='text-red-500'><small>{error?.message}</small></p>
+    if (error || updateProfileError) {
+        errorMessage = <p className='text-red-500'><small>{error?.message || updateProfileError?.message}</small></p>
     }
 
-    if (user) {
-        navigate(from, { replace: true });
+    if (token) {
+        navigate('/dashboard');
     }
 
-    const onSubmit = data => {
+    const onSubmit = async (data) => {
         console.log(data);
-        createUserWithEmailAndPassword(data.email, data.password);
+        await createUserWithEmailAndPassword(data.email, data.password);
+        await updateProfile({ displayName: data.name });
     };
 
 

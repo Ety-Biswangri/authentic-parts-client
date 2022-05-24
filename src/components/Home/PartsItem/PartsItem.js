@@ -13,7 +13,7 @@ const PartsItem = () => {
 
     const slicedParts = parts.slice(-6);
 
-    console.log(slicedParts);
+    // console.log(slicedParts);
 
     return (
         <div className='my-10 lg:mt-0 lg:px-20'>

@@ -1,11 +1,15 @@
 import React from 'react';
+import { useAuthState } from 'react-firebase-hooks/auth';
 import { useQuery } from 'react-query';
 import { useParams } from 'react-router-dom';
+import auth from '../../firebase.init';
 import Loading from '../Shared/Loading/Loading';
 
 const Purchase = () => {
 
     const { id } = useParams();
+
+    const [user, loading, error] = useAuthState(auth);
 
     const url = `http://localhost:5000/parts/${id}`;
 
@@ -17,7 +21,8 @@ const Purchase = () => {
         return <Loading></Loading>;
     }
 
-    console.log(order);
+    // console.log(order);
+    // console.log(user);
 
     return (
         <div>
