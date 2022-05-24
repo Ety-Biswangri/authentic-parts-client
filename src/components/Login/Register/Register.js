@@ -1,6 +1,6 @@
 import React from 'react';
 import { useForm } from 'react-hook-form';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import SocialLogin from '../SocialLogin/SocialLogin';
 import { useCreateUserWithEmailAndPassword, useUpdateProfile } from 'react-firebase-hooks/auth';
 import auth from '../../../firebase.init';
@@ -17,6 +17,8 @@ const Register = () => {
 
     const [updateProfile, updating, updateProfileError] = useUpdateProfile(auth);
     const navigate = useNavigate();
+    const location = useLocation();
+    let from = location?.state?.from?.pathname || '/';
 
 
     if (loading) {
@@ -30,7 +32,7 @@ const Register = () => {
     }
 
     if (user) {
-        navigate('/');
+        navigate(from, { replace: true });
     }
 
     const onSubmit = data => {

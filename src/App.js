@@ -11,6 +11,7 @@ import MyPortfolio from './components/MyPortfolio/MyPortfolio';
 import Blogs from './components/Blogs/Blogs';
 import NotFound from './components/NotFound/NotFound';
 import Purchase from './components/Purchase/Purchase';
+import RequireAuth from './components/Login/RequireAuth/RequireAuth';
 
 function App() {
   return (
@@ -19,13 +20,29 @@ function App() {
       <div className='max-w-7xl mx-auto'>
         <Routes>
           <Route path='/' element={<HomePage></HomePage>}></Route>
+
           <Route path='/home' element={<HomePage></HomePage>}></Route>
-          <Route path='/purchase/:id' element={<Purchase></Purchase>}></Route>
-          <Route path='/dashboard' element={<Dashboard></Dashboard>}></Route>
+
+          <Route path='/purchase/:id' element={
+            <RequireAuth>
+              <Purchase></Purchase>
+            </RequireAuth>
+          }></Route>
+
+          <Route path='/dashboard' element={
+            <RequireAuth>
+              <Dashboard></Dashboard>
+            </RequireAuth>
+          }></Route>
+
           <Route path='/login' element={<LoginPage></LoginPage>}></Route>
+
           <Route path='/register' element={<Register></Register>}></Route>
+
           <Route path='/portfolio' element={<MyPortfolio></MyPortfolio>}></Route>
+
           <Route path='/blogs' element={<Blogs></Blogs>}></Route>
+
           <Route path='*' element={<NotFound></NotFound>}></Route>
         </Routes>
       </div>
