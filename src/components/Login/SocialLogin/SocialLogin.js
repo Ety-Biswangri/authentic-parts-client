@@ -9,20 +9,28 @@ const SocialLogin = () => {
     const [signInWithGoogle, user, loading, error] = useSignInWithGoogle(auth);
     const navigate = useNavigate();
 
-    if (loading) {
-        return <Loading></Loading>;
-    }
+    /*   if (loading) {
+          return <Loading></Loading>;
+      } */
 
+    let errorMessage;
+
+    if (error) {
+        errorMessage = <p className='text-red-500 text-center'><small>{error?.message}</small></p>
+    }
 
     if (user) {
         navigate('/');
     }
 
     return (
-        <div className='flex justify-center items-center'>
-            <div>
-                <div className="divider">OR</div>
-                <button className="btn btn-outline" onClick={() => signInWithGoogle()}>Continue with Google</button>
+        <div>
+            {errorMessage}
+            <div className='flex justify-center items-center'>
+                <div>
+                    <div className="divider">OR</div>
+                    <button className="btn btn-outline" onClick={() => signInWithGoogle()}>Continue with Google</button>
+                </div>
             </div>
         </div>
     );

@@ -23,6 +23,13 @@ const LoginPage = () => {
     }
 
 
+    let errorMessage;
+
+    if (error) {
+        errorMessage = <p className='text-red-500'><small>{error?.message}</small></p>
+    }
+
+
     if (user) {
         navigate('/');
     }
@@ -95,6 +102,8 @@ const LoginPage = () => {
 
                             <input className='btn w-full max-w-xs text-white' type="submit" value="Login" />
                         </form>
+
+                        {errorMessage}
 
                         <p><small>New to Authentic Parts? <Link to='/register' className='text-secondary'>Create new account</Link></small></p>
 

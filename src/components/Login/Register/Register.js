@@ -12,7 +12,7 @@ const Register = () => {
         createUserWithEmailAndPassword,
         user,
         loading,
-        signUpError,
+        error,
     ] = useCreateUserWithEmailAndPassword(auth);
 
     const [updateProfile, updating, updateProfileError] = useUpdateProfile(auth);
@@ -23,6 +23,11 @@ const Register = () => {
         return <Loading></Loading>;
     }
 
+    let errorMessage;
+
+    if (error) {
+        errorMessage = <p className='text-red-500'><small>{error?.message}</small></p>
+    }
 
     if (user) {
         navigate('/');
@@ -120,6 +125,8 @@ const Register = () => {
 
                             <input className='btn w-full max-w-xs text-white' type="submit" value="Register" />
                         </form>
+
+                        {errorMessage}
 
                         <p><small>Already have an account? <Link to='/login' className='text-secondary'>Login</Link></small></p>
 
