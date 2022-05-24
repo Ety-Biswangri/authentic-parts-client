@@ -6,7 +6,7 @@ const Footer = () => {
             <div className='footer flex flex-col md:flex-row md:justify-around md:items-center'>
                 <div className='mb-5 lg:mb-0'>
                     <span class="footer-title">Services</span>
-                    <a class="link link-hover">Branding</a>
+                    <a class="link link-hover">Manufacturing</a>
                     <a class="link link-hover">Design</a>
                     <a class="link link-hover">Marketing</a>
                     <a class="link link-hover">Advertisement</a>
