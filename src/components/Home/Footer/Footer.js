@@ -1,4 +1,6 @@
 import React from 'react';
+import { FaTwitter } from 'react-icons/fa';
+import { GrLinkedin, GrFacebook } from 'react-icons/gr';
 
 const Footer = () => {
     return (
@@ -23,6 +25,18 @@ const Footer = () => {
                     <a class="link link-hover">Terms of use</a>
                     <a class="link link-hover">Privacy policy</a>
                     <a class="link link-hover">Cookie policy</a>
+                </div>
+
+                <div>
+                    <div>
+                        <p>All rights reserved &copy; {new Date().getFullYear()}</p>
+                        <div className='flex items-center justify-around mt-2'>
+                            <p>Visit us on</p>
+                            <GrFacebook></GrFacebook>
+                            <FaTwitter></FaTwitter>
+                            <GrLinkedin></GrLinkedin>
+                        </div>
+                    </div>
                 </div>
             </div>
         </footer>
