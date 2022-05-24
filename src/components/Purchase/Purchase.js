@@ -3,6 +3,7 @@ import { useAuthState } from 'react-firebase-hooks/auth';
 import { useForm } from 'react-hook-form';
 import { useQuery } from 'react-query';
 import { useParams } from 'react-router-dom';
+import { toast } from 'react-toastify';
 import auth from '../../firebase.init';
 import Loading from '../Shared/Loading/Loading';
 
@@ -18,7 +19,7 @@ const Purchase = () => {
 
     const url = `http://localhost:5000/parts/${id}`;
 
-    const { data: order, isLoading } = useQuery(['purchase', id], () => fetch(url, {
+    const { data: product, isLoading } = useQuery(['purchase', id], () => fetch(url, {
         method: 'GET',
         headers: {
             authorization: `Bearer ${localStorage.getItem('accessToken')}`
@@ -30,10 +31,37 @@ const Purchase = () => {
         return <Loading></Loading>;
     }
 
-    const { name, image, description, minOrderQuantity, availableQuantiy, price } = order;
+    const { _id, name, image, description, minOrderQuantity, availableQuantiy, price } = product;
 
     const onSubmit = async (formData) => {
-        console.log(formData)
+        console.log(formData);
+        toast(`Your purchase order for ${name} is placed`);
+        const orderPrice = parseInt(price * formData.quantity);
+
+        const order = {
+            orderId: _id,
+            orderName: name,
+            orderPrice: orderPrice,
+            customerEmail: user.email,
+            customerName: user.displayName,
+            orderQuantity: formData.quantity,
+            customerAddress: formData.address,
+            customerPhone: formData.phone
+        }
+
+        console.log(order);
+
+        fetch('http://localhost:5000/order', {
+            method: "POST",
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(order)
+        })
+            .then(res => res.json())
+            .then(data => {
+                console.log(data);
+            })
     };
 
 

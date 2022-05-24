@@ -33,7 +33,7 @@ const Header = () => {
     </>
 
     return (
-        <div class="navbar bg-base-100 bg-primary 2xl:max-w-7xl mx-auto">
+        <div class="navbar bg-base-100 bg-primary 2xl:max-w-7xl mx-auto sticky top-0 z-50">
             <div class="navbar-start">
                 <div class="dropdown">
                     <label tabindex="0" class="btn btn-ghost lg:hidden text-white">
