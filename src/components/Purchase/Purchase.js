@@ -35,7 +35,6 @@ const Purchase = () => {
 
     const onSubmit = async (formData) => {
         console.log(formData);
-        toast(`Your purchase order for ${name} is placed`);
         const orderPrice = parseInt(price * formData.quantity);
 
         const order = {
@@ -61,6 +60,7 @@ const Purchase = () => {
             .then(res => res.json())
             .then(data => {
                 console.log(data);
+                toast(`Your purchase order for ${name} is placed`);
             })
     };
 

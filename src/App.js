@@ -19,6 +19,8 @@ import ManageOrders from './components/Dashboard/ManageOrders';
 import AddProduct from './components/Dashboard/AddProduct';
 import MakeAdmin from './components/Dashboard/MakeAdmin';
 import ManageProducts from './components/Dashboard/ManageProducts';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 function App() {
   return (
@@ -62,6 +64,7 @@ function App() {
         </Routes>
       </div>
       <Footer></Footer>
+      <ToastContainer></ToastContainer>
     </div>
   );
 }
