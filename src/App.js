@@ -1,4 +1,3 @@
-import logo from './logo.svg';
 import './App.css';
 import Header from './components/Home/Header/Header';
 import { Route, Routes } from 'react-router-dom';
@@ -22,6 +21,7 @@ import ManageProducts from './components/Dashboard/ManageProducts';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import RequireAdmin from './components/Login/RequireAdmin/RequireAdmin';
+import RequireNotAdmin from './components/Login/RequireNotAdmin/RequireNotAdmin';
 
 function App() {
   return (
@@ -46,9 +46,17 @@ function App() {
           }>
             <Route index element={<MyProfile></MyProfile>}></Route>
 
-            <Route path='myOrders' element={<MyOrders></MyOrders>}></Route>
+            <Route path='myOrders' element={
+              <RequireNotAdmin>
+                <MyOrders></MyOrders>
+              </RequireNotAdmin>
+            }></Route>
 
-            <Route path='addReview' element={<AddReview></AddReview>}></Route>
+            <Route path='addReview' element={
+              <RequireNotAdmin>
+                <AddReview></AddReview>
+              </RequireNotAdmin>
+            }></Route>
 
             <Route path='manageOrders' element={
               <RequireAdmin>
