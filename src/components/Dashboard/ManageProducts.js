@@ -5,13 +5,15 @@ import ManageProductsRow from './ManageProductsRow';
 
 const ManageProducts = () => {
 
-    const { data: products, isLoading, error } = useQuery('products', () => fetch('http://localhost:5000/parts').then(res => res.json()));
+    const { data: products, isLoading, error, refetch } = useQuery('products', () => fetch('http://localhost:5000/parts').then(res => res.json()));
 
     if (isLoading) {
         return <Loading></Loading>;
     }
+    /* 
+        const reverseProducts = products.reverse();
+        console.log(reverseProducts) */
 
-    // console.log(products);
 
     return (
         <div>
@@ -30,7 +32,7 @@ const ManageProducts = () => {
                     </thead>
                     <tbody>
                         {
-                            products.map((product, index) => <ManageProductsRow key={product._id} product={product} index={index}></ManageProductsRow>)
+                            products.map((product, index) => <ManageProductsRow key={product._id} product={product} index={index} refetch={refetch}></ManageProductsRow>)
                         }
                     </tbody>
                 </table>
