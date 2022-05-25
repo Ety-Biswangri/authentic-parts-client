@@ -1,7 +1,7 @@
 import { signOut } from 'firebase/auth';
 import React, { useEffect, useState } from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import auth from '../../firebase.init';
 
 const MyOrders = () => {
@@ -35,8 +35,8 @@ const MyOrders = () => {
     }, [user]);
 
     return (
-        <div>
-            <h2>My Total Orders: {myOrders.length}</h2>
+        <div className='my-8'>
+            <h2 className='text-secondary text-xl text-center mb-3'>My Total Orders: {myOrders.length}</h2>
 
             <div class="overflow-x-auto">
                 <table class="table w-full">
@@ -47,8 +47,7 @@ const MyOrders = () => {
                             <th>Product Name</th>
                             <th>Total Price</th>
                             <th>Quantity</th>
-                            <th>Payment Status</th>
-                            <th>Action</th>
+                            <th>Payment</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -57,10 +56,19 @@ const MyOrders = () => {
                                 <th>{index + 1}</th>
                                 <td>{myOrder.customerName}</td>
                                 <td>{myOrder.orderName}</td>
-                                <td>{myOrder.orderPrice}</td>
+                                <td>${myOrder.orderPrice}</td>
                                 <td>{myOrder.orderQuantity}</td>
-                                <td>{myOrder.customerName}</td>
-                                <td>{myOrder.customerName}</td>
+                                <td>
+                                    {
+                                        !myOrder.paid && <>
+                                            <Link to={`/dashboard/payment/${myOrder._id}`}><button class="btn btn-success btn-xs text-white">Pay</button></Link>
+
+                                            <Link to={``}><button class="btn btn-error btn-xs text-white ml-3">Cancel</button></Link></>
+                                    }
+                                    {
+                                        myOrder.paid && <span className='text-success'>Paid</span>
+                                    }
+                                </td>
                             </tr>)
                         }
                     </tbody>

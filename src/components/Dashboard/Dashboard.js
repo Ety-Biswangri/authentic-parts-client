@@ -13,14 +13,14 @@ const Dashboard = () => {
     return (
         <div class="drawer drawer-mobile">
             <input id="dashboard-sidebar" type="checkbox" class="drawer-toggle" />
-            <div class="drawer-content">
-                <h2 className='text-2xl font-bold text-purple-500'>Welcome to your Dashboard</h2>
+            <div class="drawer-content lg:px-20 px-5 py-6">
+                <h2 className='text-2xl font-bold text-primary text-center'>Welcome to your Dashboard</h2>
                 <Outlet></Outlet>
             </div>
 
             <div class="drawer-side">
                 <label for="dashboard-sidebar" class="drawer-overlay"></label>
-                <ul class="menu p-4 overflow-y-auto w-48 bg-base-100 text-base-content">
+                <ul class="menu p-4 overflow-y-auto w-48 text-white" style={{ backgroundColor: "#457b9d" }}>
                     <li><Link to="/dashboard">My Profile</Link></li>
                     {
                         !admin &&

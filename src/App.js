@@ -22,12 +22,13 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import RequireAdmin from './components/Login/RequireAdmin/RequireAdmin';
 import RequireNotAdmin from './components/Login/RequireNotAdmin/RequireNotAdmin';
+import Payment from './components/Dashboard/Payment';
 
 function App() {
   return (
     <div>
       <Header></Header>
-      <div className='max-w-7xl mx-auto'>
+      <div className='lg:max-w-full max-w-7xl mx-auto'>
         <Routes>
           <Route path='/' element={<HomePage></HomePage>}></Route>
 
@@ -51,6 +52,8 @@ function App() {
                 <MyOrders></MyOrders>
               </RequireNotAdmin>
             }></Route>
+
+            <Route path='payment/:id' element={<Payment></Payment>}></Route>
 
             <Route path='addReview' element={
               <RequireNotAdmin>
