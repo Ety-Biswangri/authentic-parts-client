@@ -13,7 +13,7 @@ const Purchase = () => {
 
     const [user, loading, error] = useAuthState(auth);
 
-    const { register, formState: { errors }, handleSubmit } = useForm();
+    const { register, formState: { errors }, handleSubmit, reset } = useForm();
 
     const [agree, setAgree] = useState(false);
 
@@ -61,6 +61,7 @@ const Purchase = () => {
             .then(data => {
                 console.log(data);
                 toast(`Your purchase order for ${name} is placed`);
+                reset();
             })
     };
 

@@ -4,7 +4,7 @@ import { toast } from 'react-toastify';
 
 const AddProduct = () => {
 
-    const { register, formState: { errors }, handleSubmit } = useForm();
+    const { register, formState: { errors }, handleSubmit, reset } = useForm();
 
     const onSubmit = data => {
         console.log(data);
@@ -12,6 +12,7 @@ const AddProduct = () => {
             method: 'POST',
             headers: {
                 'Content-type': 'application/json',
+                authorization: `Bearer ${localStorage.getItem('accessToken')}`
             },
             body: JSON.stringify(data)
         })
@@ -19,6 +20,7 @@ const AddProduct = () => {
             .then(result => {
                 console.log(result);
                 toast('Product Added Successfully');
+                reset();
             })
     };
 
