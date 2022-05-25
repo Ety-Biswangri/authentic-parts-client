@@ -5,6 +5,7 @@ import Footer from '../Footer/Footer';
 import PartsItem from '../PartsItem/PartsItem';
 import RequestQute from '../RequestQuote/RequestQute';
 import Reviews from '../Reviews/Reviews';
+import Team from '../Team/Team';
 
 const HomePage = () => {
     return (
@@ -13,6 +14,7 @@ const HomePage = () => {
             <PartsItem></PartsItem>
             <BusinessSummary></BusinessSummary>
             <Reviews></Reviews>
+            <Team></Team>
             <RequestQute></RequestQute>
         </div>
     );
