@@ -1,6 +1,7 @@
 import React from 'react';
 import { useQuery } from 'react-query';
 import Loading from '../Shared/Loading/Loading';
+import ManageProductsRow from './ManageProductsRow';
 
 const ManageProducts = () => {
 
@@ -10,9 +11,30 @@ const ManageProducts = () => {
         return <Loading></Loading>;
     }
 
+    // console.log(products);
+
     return (
         <div>
             <h2>Total Products: {products.length}</h2>
+
+            <div class="overflow-x-auto">
+                <table class="table w-full">
+                    <thead>
+                        <tr>
+                            <th></th>
+                            <th>Photo</th>
+                            <th>Name</th>
+                            <th>Price (per unit)</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {
+                            products.map((product, index) => <ManageProductsRow key={product._id} product={product} index={index}></ManageProductsRow>)
+                        }
+                    </tbody>
+                </table>
+            </div>
         </div>
     );
 };
