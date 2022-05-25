@@ -1,17 +1,20 @@
 import React from 'react';
+import { useState } from 'react';
 import { useQuery } from 'react-query';
 import Loading from '../Shared/Loading/Loading';
+import ConfirmDeleteModal from './ConfirmDeleteModal';
 import ManageProductsRow from './ManageProductsRow';
 
 const ManageProducts = () => {
+    const [confirmDelete, setConfirmDelete] = useState(null);
 
     const { data: products, isLoading, error, refetch } = useQuery('products', () => fetch('http://localhost:5000/parts').then(res => res.json()));
 
     if (isLoading) {
         return <Loading></Loading>;
     }
-    /* 
-        const reverseProducts = products.reverse();
+
+    /* const reverseProducts = products.reverse();
         console.log(reverseProducts) */
 
 
@@ -32,11 +35,14 @@ const ManageProducts = () => {
                     </thead>
                     <tbody>
                         {
-                            products.map((product, index) => <ManageProductsRow key={product._id} product={product} index={index} refetch={refetch}></ManageProductsRow>)
+                            products.map((product, index) => <ManageProductsRow key={product._id} product={product} index={index} refetch={refetch} setConfirmDelete={setConfirmDelete}></ManageProductsRow>)
                         }
                     </tbody>
                 </table>
             </div>
+            {
+                confirmDelete && <ConfirmDeleteModal confirmDelete={confirmDelete} refetch={refetch} setConfirmDelete={setConfirmDelete}></ConfirmDeleteModal>
+            }
         </div>
     );
 };
