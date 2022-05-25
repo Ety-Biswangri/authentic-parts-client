@@ -3,6 +3,7 @@ import Banner from '../Banner/Banner';
 import BusinessSummary from '../BusinessSummary/BusinessSummary';
 import Footer from '../Footer/Footer';
 import PartsItem from '../PartsItem/PartsItem';
+import RequestQute from '../RequestQuote/RequestQute';
 import Reviews from '../Reviews/Reviews';
 
 const HomePage = () => {
@@ -12,6 +13,7 @@ const HomePage = () => {
             <PartsItem></PartsItem>
             <BusinessSummary></BusinessSummary>
             <Reviews></Reviews>
+            <RequestQute></RequestQute>
         </div>
     );
 };

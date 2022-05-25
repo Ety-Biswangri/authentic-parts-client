@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import bannerImage from '../../../image/banner.jpg';
 
 const Banner = () => {
@@ -9,7 +10,7 @@ const Banner = () => {
                 <div>
                     <h1 class="text-3xl lg:text-5xl font-bold text-primary">The Leader In Microwave Oven Manufacturing</h1>
                     <p class="py-6">Authentic Parts has been manufacturing microwave ovens for over 10 years. The experienced manufacturing team at Authentic Parts is able to meet the strict standards.</p>
-                    <button class="btn btn-primary">Get Started</button>
+                    <a href="#quote"> <button class="btn btn-primary text-white">Request a quote</button></a>
                 </div>
             </div>
         </div>
