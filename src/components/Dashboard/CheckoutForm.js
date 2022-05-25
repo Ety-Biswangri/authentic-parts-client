@@ -12,7 +12,7 @@ const CheckoutForm = ({ order }) => {
     const [processing, setProcessing] = useState(false);
     const [transactionId, setTransactionId] = useState('');
 
-    const { customerName, customerEmail, orderPrice } = order;
+    const { _id, customerName, customerEmail, orderPrice } = order;
     // console.log(order)
 
     useEffect(() => {
@@ -54,6 +54,9 @@ const CheckoutForm = ({ order }) => {
         setCardError(error?.message || '');
         setSuccess('');
 
+
+        setProcessing(true);
+
         const { paymentIntent, error: intentError } = await stripe.confirmCardPayment(
             clientSecret,
             {
@@ -69,12 +72,31 @@ const CheckoutForm = ({ order }) => {
 
         if (intentError) {
             setCardError(intentError?.message);
-            setSuccess("");
+            setProcessing(false);
         }
         else {
             setCardError('');
             setTransactionId(paymentIntent.id);
-            setSuccess("Congrats");
+            setSuccess("Congrats! Payment Successful");
+
+            const payment = {
+                order: _id,
+                transactionId: paymentIntent.id
+            }
+
+            fetch(`http://localhost:5000/order/${_id}`, {
+                method: 'PATCH',
+                headers: {
+                    'content-type': 'application/json',
+                    'authorization': `Bearer ${localStorage.getItem('accessToken')}`
+                },
+                body: JSON.stringify(payment)
+            })
+                .then(res => res.json())
+                .then(data => {
+                    setProcessing(false);
+                    console.log(data);
+                })
         }
 
     }
