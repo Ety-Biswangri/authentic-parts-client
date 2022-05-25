@@ -18,7 +18,7 @@ const MakeAdmin = () => {
 
     return (
         <div>
-            <h2 className="text-2xl">Total Users: {users?.length}</h2>
+            <h2 className='text-secondary text-xl text-center mb-3 mt-6'>Make a new Admin</h2>
 
             <div class="overflow-x-auto">
                 <table class="table w-full">

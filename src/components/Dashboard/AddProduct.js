@@ -26,7 +26,8 @@ const AddProduct = () => {
 
     return (
         <div>
-            <h2>Add a Product</h2>
+            <h2 className='text-secondary text-xl text-center mb-3 mt-6'>Add a new product</h2>
+
 
             <div className="flex justify-center w-full my-10 mb-14">
                 <div class="card flex-shrink-0 w-full max-w-sm lg:max-w-lg shadow-2xl bg-base-100">
