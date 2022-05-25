@@ -47,7 +47,8 @@ const MyOrders = () => {
                             <th>Product Name</th>
                             <th>Total Price</th>
                             <th>Quantity</th>
-                            <th>Payment</th>
+                            <th>Payment Status</th>
+                            <th>Action</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -60,13 +61,28 @@ const MyOrders = () => {
                                 <td>{myOrder.orderQuantity}</td>
                                 <td>
                                     {
+                                        myOrder.paid && <span className='text-success text-green-700'>Paid</span>
+                                    }
+                                    {
+                                        !myOrder.paid && <span className='text-red-800'>Not paid</span>
+                                    }
+                                </td>
+                                <td>
+                                    {
                                         !myOrder.paid && <>
                                             <Link to={`/dashboard/payment/${myOrder._id}`}><button class="btn btn-success btn-xs text-white">Pay</button></Link>
 
                                             <Link to={``}><button class="btn btn-error btn-xs text-white ml-3">Cancel</button></Link></>
                                     }
+
                                     {
-                                        myOrder.paid && <span className='text-success'>Paid</span>
+                                        /*  {
+                                            myOrder.paid && <span className='text-success'>Paid</span>
+                                        } */
+                                    }
+
+                                    {
+                                        myOrder.paid && <span className='text-green-700'>Transaction Id: {myOrder.transactionId}</span>
                                     }
                                 </td>
                             </tr>)
