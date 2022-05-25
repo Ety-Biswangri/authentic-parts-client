@@ -16,7 +16,7 @@ const CheckoutForm = ({ order }) => {
     // console.log(order)
 
     useEffect(() => {
-        fetch(`http://localhost:5000/create-payment-intent`, {
+        fetch(`https://intense-river-93900.herokuapp.com/create-payment-intent`, {
             method: 'POST',
             headers: {
                 'content-type': 'application/json',
@@ -84,7 +84,7 @@ const CheckoutForm = ({ order }) => {
                 transactionId: paymentIntent.id
             }
 
-            fetch(`http://localhost:5000/order/${_id}`, {
+            fetch(`https://intense-river-93900.herokuapp.com/order/${_id}`, {
                 method: 'PATCH',
                 headers: {
                     'content-type': 'application/json',

@@ -21,12 +21,12 @@ const Header = () => {
         <li><Link to="/blogs">Blogs</Link></li>
         <li><Link to="/portfolio">My Portfolio</Link></li>
         {
-            user && <li><Link to="/">{user.displayName}</Link></li>
+            user && <li className='text-blue-200 font-bold'><Link to="/">{user.displayName}</Link></li>
         }
         <li>
             {
                 user ?
-                    <button class="btn" style={{ backgroundColor: "lightblue", color: 'black' }} onClick={logOut}>Logout</button>
+                    <button class="btn" style={{ backgroundColor: "lightblue", color: 'black' }} onClick={logOut}>Log Out</button>
                     : <Link to="/login">Login</Link>
             }
         </li>

@@ -20,21 +20,21 @@ const Dashboard = () => {
 
             <div class="drawer-side">
                 <label for="dashboard-sidebar" class="drawer-overlay"></label>
-                <ul class="menu p-4 overflow-y-auto w-48 text-white" style={{ backgroundColor: "#457b9d" }}>
+                <ul class="menu p-4 overflow-y-auto w-52 text-white" style={{ backgroundColor: "#457b9d" }}>
                     <li><Link to="/dashboard">My Profile</Link></li>
                     {
                         !admin &&
                         <>
                             <li><Link to="/dashboard/myOrders">My Orders</Link></li>
-                            <li><Link to="/dashboard/addReview">Add Review</Link></li>
+                            <li><Link to="/dashboard/addReview">Add A Review</Link></li>
                         </>
                     }
 
                     {
                         admin &&
                         <>
-                            <li><Link to="/dashboard/manageOrders">Manage Orders</Link></li>
-                            <li><Link to="/dashboard/addProduct">Add Product</Link></li>
+                            <li><Link to="/dashboard/manageOrders">Manage All Orders</Link></li>
+                            <li><Link to="/dashboard/addProduct">Add A Product</Link></li>
                             <li><Link to="/dashboard/makeAdmin">Make Admin</Link></li>
                             <li><Link to="/dashboard/manageProducts">Manage Products</Link></li>
                         </>

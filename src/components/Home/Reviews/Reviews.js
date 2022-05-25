@@ -5,7 +5,7 @@ import Review from './Review';
 
 const Reviews = () => {
 
-    const { data: feedbacks, isLoading, error } = useQuery('feedbacks', () => fetch('http://localhost:5000/review', {
+    const { data: feedbacks, isLoading, error } = useQuery('feedbacks', () => fetch('https://intense-river-93900.herokuapp.com/review', {
         method: 'GET',
         headers: {
             authorization: `Bearer ${localStorage.getItem('accessToken')}`

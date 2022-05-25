@@ -19,7 +19,7 @@ const AddReview = () => {
             customerName: user.displayName
         }
 
-        fetch(`http://localhost:5000/review`, {
+        fetch(`https://intense-river-93900.herokuapp.com/review`, {
             method: 'POST',
             headers: {
                 'Content-type': 'application/json',
