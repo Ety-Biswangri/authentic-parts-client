@@ -5,7 +5,7 @@ import PartItem from './PartItem';
 
 const PartsItem = () => {
 
-    const { data: parts, isLoading, error } = useQuery('parts', () => fetch('http://localhost:5000/parts').then(res => res.json()));
+    const { data: parts, isLoading, error } = useQuery('parts', () => fetch('https://intense-river-93900.herokuapp.com/parts').then(res => res.json()));
 
     if (isLoading) {
         return <Loading></Loading>;
