@@ -26,7 +26,7 @@ const Payment = () => {
         return <Loading></Loading>;
     }
 
-    console.log(order)
+    // console.log(order)
 
     const { customerName, orderName, orderPrice, orderQuantity, } = order;
 
