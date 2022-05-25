@@ -8,7 +8,7 @@ const AddProduct = () => {
 
     const onSubmit = data => {
         console.log(data);
-        fetch(`http://localhost:5000/parts`, {
+        fetch(`https://intense-river-93900.herokuapp.com/parts`, {
             method: 'POST',
             headers: {
                 'Content-type': 'application/json',

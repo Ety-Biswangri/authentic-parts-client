@@ -8,7 +8,7 @@ import ManageProductsRow from './ManageProductsRow';
 const ManageProducts = () => {
     const [confirmDelete, setConfirmDelete] = useState(null);
 
-    const { data: products, isLoading, error, refetch } = useQuery('products', () => fetch('http://localhost:5000/parts').then(res => res.json()));
+    const { data: products, isLoading, error, refetch } = useQuery('products', () => fetch('https://intense-river-93900.herokuapp.com/parts').then(res => res.json()));
 
     if (isLoading) {
         return <Loading></Loading>;
