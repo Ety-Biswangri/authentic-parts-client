@@ -40,9 +40,17 @@ const Blogs = () => {
                 <div class="card lg:card-side bg-base-100 shadow-md mb-10">
                     <div class="card-body">
                         <div className='text-justify'>
-                            <h2 class="text-2xl font-bold mb-3">1 .Ety Biswangri</h2>
+                            <h2 class="lg:text-2xl text-lg font-bold mb-5">3. What are the different ways to manage a state in a React application?</h2>
 
-                            <p className='text-xl font-bold lg:mb-2 mb-4'>Technical Skills:</p>
+                            <p className='lg:text-xl lg:mb-2 mb-4'>The Four basic ways to manage a state in a React Applications are: 1. Local, 2. Global, 3. Server and 4. URL</p>
+
+                            <p className='lg:text-xl lg:mb-2 mb-4'>1. Data that we handle in one or more components is referred to as local state. (for example, using useState hook to manage local state)</p>
+
+                            <p className='lg:text-xl lg:mb-2 mb-4'>2.Data that we handle across several components is referred to as global state. (for example, Context API)</p>
+
+                            <p className='lg:text-xl lg:mb-2 mb-4'>3. Data from an external server that has to be integrated with our existing UI state. (for example, React Query to manage server state)</p>
+
+                            <p className='lg:text-xl lg:mb-2 mb-4'>4. Data found on our URLs, such as pathnames and query parameters. (for example, useParams hook)</p>
                         </div>
                     </div>
                 </div>
