@@ -12,6 +12,16 @@ Live Site Link: [Authentic Parts](https://authentic-parts.web.app/)
 * Customers can update their profile, Purchase products and can make payment using credit card.
 * Customers can add a review for a product.
 
+
+### Server Side:
+* Products data are stored in MongoDB database
+* There are two types of users: Admin and general users or customers
+* After loggin in admin can see the dashboard route where he/she can update profile, can manage client orders
+* Admin can add or delete a product, also can add a new admin for this website.
+* Customers can update their profile, Purchase products and can make payment using credit card.
+* Customers can add a review for a product.
+
+
 ### Technologies Used:
 * Tailwind CSS
 * DaisyUI

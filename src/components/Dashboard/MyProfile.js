@@ -50,7 +50,7 @@ const MyProfile = () => {
         })
             .then(res => res.json())
             .then(data => setMyProfile(data));
-    }, [user.email, isReload]);
+    }, [user?.email, isReload]);
 
 
 
