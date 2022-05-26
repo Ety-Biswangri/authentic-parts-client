@@ -2,11 +2,12 @@ import React, { useState } from 'react';
 import { useQuery } from 'react-query';
 import Loading from '../Shared/Loading/Loading';
 import ManageOrdersRow from './ManageOrdersRow';
-// import ConfirmDeleteModal from './ConfirmDeleteModal';
+import ConfirmDeleteModal from './ConfirmDeleteModal';
+import AllOrdersDeleteConfirm from './AllOrdersDeleteConfirm';
 
 const ManageOrders = () => {
 
-    // const [confirmDelete, setConfirmDelete] = useState(null);
+    const [confirmDelete, setConfirmDelete] = useState(null);
 
     const { data: allOrders, isLoading, error, refetch } = useQuery('allOrders', () => fetch('http://localhost:5000/orders', {
         method: 'GET',
@@ -41,14 +42,14 @@ const ManageOrders = () => {
                     </thead>
                     <tbody>
                         {
-                            allOrders.map((order, index) => <ManageOrdersRow key={order._id} order={order} index={index} refetch={refetch}></ManageOrdersRow>)
+                            allOrders.map((order, index) => <ManageOrdersRow key={order._id} order={order} index={index} refetch={refetch} setConfirmDelete={setConfirmDelete}></ManageOrdersRow>)
                         }
                     </tbody>
                 </table>
             </div>
-            {/* {
-                confirmDelete && <ConfirmDeleteModal confirmDelete={confirmDelete} refetch={refetch} setConfirmDelete={setConfirmDelete}></ConfirmDeleteModal>
-            } */}
+            {
+                confirmDelete && <AllOrdersDeleteConfirm confirmDelete={confirmDelete} refetch={refetch} setConfirmDelete={setConfirmDelete}></AllOrdersDeleteConfirm>
+            }
         </div>
     );
 };

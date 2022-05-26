@@ -14,7 +14,7 @@ const ConfirmDeleteModal = ({ confirmDelete, refetch, setConfirmDelete }) => {
         })
             .then(res => res.json())
             .then(data => {
-                console.log(data);
+                // console.log(data);
                 if (data.deletedCount) {
                     toast(`${name} is deleted successfully`);
                     setConfirmDelete(null);

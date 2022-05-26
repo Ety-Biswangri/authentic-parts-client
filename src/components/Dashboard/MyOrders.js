@@ -73,8 +73,6 @@ const MyOrders = () => {
                                         !myOrder.paid && <>
                                             <Link to={`/dashboard/payment/${myOrder._id}`}><button class="btn btn-success btn-xs text-white">Pay</button></Link>
 
-                                            {/*  <Link to={``}><button class="btn btn-error btn-xs text-white ml-3">Cancel</button></Link> */}
-
                                             <label onClick={() => setOrderConfirmDelete(myOrder)} for="confirm-delete-modal" class="btn btn-error btn-xs text-white">Delete</label>
                                         </>
                                     }

@@ -14,9 +14,6 @@ const ManageProducts = () => {
         return <Loading></Loading>;
     }
 
-    /* const reverseProducts = products.reverse();
-        console.log(reverseProducts) */
-
 
     return (
         <div>
@@ -30,6 +27,8 @@ const ManageProducts = () => {
                             <th></th>
                             <th>Photo</th>
                             <th>Name</th>
+                            <th>Available Quantity</th>
+                            <th>Minimum Order Quantity</th>
                             <th>Price (per unit)</th>
                             <th>Action</th>
                         </tr>

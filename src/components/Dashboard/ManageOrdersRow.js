@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-const ManageOrdersRow = ({ order, index, refetch }) => {
+const ManageOrdersRow = ({ order, index, refetch, setConfirmDelete }) => {
 
     const { _id, customerName, orderName, orderQuantity, orderPrice } = order;
 
@@ -23,7 +23,7 @@ const ManageOrdersRow = ({ order, index, refetch }) => {
             <td>
                 {
                     !order.paid &&
-                    <button class="btn btn-error btn-xs text-white ml-3">Cancel</button>
+                    <label onClick={() => setConfirmDelete(order)} for="confirm-delete-modal" class="btn btn-error btn-xs text-white">Cancel</label>
                 }
                 {
                     order.paid && <span className='text-green-700'>Shipped</span>

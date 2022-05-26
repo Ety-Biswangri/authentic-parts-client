@@ -2,7 +2,7 @@ import React from 'react';
 
 const ManageProductsRow = ({ product, index, refetch, setConfirmDelete }) => {
 
-    const { _id, image, name, price } = product;
+    const { _id, image, name, price, availableQuantiy, minOrderQuantity } = product;
 
     return (
         <tr>
@@ -13,6 +13,8 @@ const ManageProductsRow = ({ product, index, refetch, setConfirmDelete }) => {
                 </div>
             </div></td>
             <td>{name}</td>
+            <td>{availableQuantiy}</td>
+            <td>{minOrderQuantity}</td>
             <td>${price}</td>
             <td>
                 <label onClick={() => setConfirmDelete(product)} for="confirm-delete-modal" class="btn btn-error btn-xs text-white">Delete</label>
