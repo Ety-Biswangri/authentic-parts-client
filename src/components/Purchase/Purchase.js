@@ -67,7 +67,7 @@ const Purchase = () => {
 
 
     return (
-        <div className='lg:px-20'>
+        <div className='lg:px-28'>
             <div class="hero min-h-max my-10">
                 <div class="hero-content flex-col lg:flex-row">
                     <img src={image} alt="productImage" class="max-w-xs lg:max-w-sm rounded-lg shadow-2xl" />
@@ -92,20 +92,21 @@ const Purchase = () => {
 
             <div className='mt-16 mb-14'>
                 <h2 className='text-center mb-5 font-semibold text-3xl'>Purchase Order</h2>
-                <div className="flex justify-center w-full">
-                    <div class="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
+
+                <div className="flex justify-center w-full my-10 mb-14">
+                    <div class="card flex-shrink-0 w-full max-w-sm lg:max-w-2xl shadow-2xl bg-base-100">
                         <div class="card-body">
                             <form onSubmit={handleSubmit(onSubmit)}>
 
                                 {/* name input field */}
-                                <div className="form-control w-full max-w-xs">
+                                <div className="form-control">
                                     <label className="label">
                                         <span className="label-text">Name</span>
                                     </label>
                                     <input
                                         type="text"
                                         placeholder="Your name"
-                                        className="input input-bordered w-full max-w-xs"
+                                        className="input input-bordered w-full max-w-xs lg:max-w-2xl"
                                         {...register("name")}
                                         value={user?.displayName}
                                         readOnly
@@ -121,7 +122,7 @@ const Purchase = () => {
                                     <input
                                         type="email"
                                         placeholder="Your email"
-                                        className="input input-bordered w-full max-w-xs"
+                                        className="input input-bordered w-full max-w-xs lg:max-w-2xl"
                                         {...register("email")}
                                         value={user?.email}
                                         readOnly
@@ -136,7 +137,7 @@ const Purchase = () => {
                                     <input
                                         type="text"
                                         placeholder="Address"
-                                        className="input input-bordered w-full max-w-xs"
+                                        className="input input-bordered w-full max-w-xs lg:max-w-2xl"
                                         {...register("address", {
                                             required: {
                                                 value: true,
@@ -157,7 +158,7 @@ const Purchase = () => {
                                     <input
                                         type="text"
                                         placeholder="Phone Number"
-                                        className="input input-bordered w-full max-w-xs"
+                                        className="input input-bordered w-full max-w-xs lg:max-w-2xl"
                                         {...register("phone", {
                                             required: {
                                                 value: true,
@@ -183,7 +184,7 @@ const Purchase = () => {
                                     <input
                                         type="number"
                                         defaultValue={minOrderQuantity}
-                                        className="input input-bordered w-full max-w-xs"
+                                        className="input input-bordered w-full max-w-xs lg:max-w-2xl"
                                         {...register("quantity", {
                                             required: {
                                                 value: true,
@@ -208,7 +209,7 @@ const Purchase = () => {
                                                     <input disabled className='btn w-full max-w-xs text-white' type="submit" value="Purchase" />
                                                 </div>
                                             </div> :
-                                            <input className='btn w-full max-w-xs text-white' type="submit" value="Purchase" />
+                                            <input className='btn w-full max-w-xs lg:max-w-2xl text-white' type="submit" value="Purchase" />
                                         }
                                     </label>
                                 </div>
