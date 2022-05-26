@@ -3,7 +3,7 @@ import { toast } from 'react-toastify';
 
 const AllOrdersDeleteConfirm = ({ confirmDelete, refetch, setConfirmDelete }) => {
 
-    const { _id, orderName } = confirmDelete;
+    const { _id, orderName, customerName } = confirmDelete;
 
     const handleCancel = id => {
         fetch(`http://localhost:5000/orders/${_id}`, {
@@ -29,7 +29,7 @@ const AllOrdersDeleteConfirm = ({ confirmDelete, refetch, setConfirmDelete }) =>
             <input type="checkbox" id="confirm-delete-modal" class="modal-toggle" />
             <div class="modal modal-bottom sm:modal-middle">
                 <div class="modal-box">
-                    <h3 class="font-bold text-lg text-red-500">Are you sure for cancelling {orderName}</h3>
+                    <h3 class="font-bold text-lg text-red-500">Are you sure for cancelling {customerName}'s order for {orderName}?</h3>
                     <div class="modal-action">
                         <button class="btn btn-error btn-xs text-white" onClick={() => handleCancel(_id)}>Yes</button>
                         <label for="confirm-delete-modal" class="btn btn-xs text-white">No</label>
