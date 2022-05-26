@@ -26,9 +26,13 @@ const Blogs = () => {
                 <div class="card lg:card-side bg-base-100 shadow-md mb-10">
                     <div class="card-body">
                         <div className='text-justify'>
-                            <h2 class="text-2xl font-bold mb-3">1 .Ety Biswangri</h2>
+                            <h2 class="lg:text-2xl text-lg font-bold mb-5">2. How will you improve the performance of a React Application?</h2>
 
-                            <p className='text-xl font-bold lg:mb-2 mb-4'>Technical Skills:</p>
+                            <p className='lg:text-xl lg:mb-2 mb-4'>Some of the ways of improving the performance of a React Application are given below: </p>
+                            <p className='lg:text-xl lg:mb-2 mb-4'>1. By keeping component state local where necessary</p>
+                            <p className='lg:text-xl lg:mb-2 mb-4'>2. By dependency optimization</p>
+                            <p className='lg:text-xl lg:mb-2 mb-4'>3. By using immutable data structures</p>
+                            <p className='lg:text-xl lg:mb-2 mb-4'>4. By avoiding anonymous functions</p>
                         </div>
                     </div>
                 </div>
