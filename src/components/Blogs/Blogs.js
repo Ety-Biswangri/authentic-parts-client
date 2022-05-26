@@ -58,7 +58,19 @@ const Blogs = () => {
                 <div class="card lg:card-side bg-base-100 shadow-md mb-10">
                     <div class="card-body">
                         <div className='text-justify'>
-                            <h2 class="lg:text-2xl text-lg font-bold mb-5">4. How will you improve the performance of a React Application?</h2>
+                            <h2 class="lg:text-2xl text-lg font-bold mb-5">4. Why you do not set the state directly in React. For example, if you have const [products, setProducts] = useState([]). Why you do not set products = [...] instead, you use the setProducts
+
+                            </h2>
+
+                            <p className='lg:text-xl lg:mb-2 mb-4'>All of React's virtual DOM is kept track of. Every time something changes, all of the components are rendered, and the new virtual DOM is compared to the old virtual DOM. Only the differences identified in the original DOM are represented. So, if we set the state directly in React, it will also alter the reference of the state in the prior virtual DOM. As a result, React will be unable to detect a state change, and the change will not be reflected in the original DOM until we reload. That's why we do not set the state directly in React.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card lg:card-side bg-base-100 shadow-md mb-10">
+                    <div class="card-body">
+                        <div className='text-justify'>
+                            <h2 class="lg:text-2xl text-lg font-bold mb-5">5. How will you improve the performance of a React Application?</h2>
 
                             <p className='lg:text-xl lg:mb-2 mb-4'>Some of the ways of improving the performance of a React Application are given below: </p>
                             <p className='lg:text-xl lg:mb-2 mb-4'>1. By keeping component state local where necessary</p>
@@ -68,8 +80,6 @@ const Blogs = () => {
                         </div>
                     </div>
                 </div>
-
-
             </div>
         </div >
     );
