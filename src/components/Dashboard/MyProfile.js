@@ -64,20 +64,20 @@ const MyProfile = () => {
 
                     <div class="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
                         <div class="card-body text-lg">
-                            <h2><span className='font-bold text-primary'>Name:</span> {user.displayName}</h2>
+                            <h2><span className='font-bold text-primary'>Name:</span> {user?.displayName}</h2>
 
-                            <p><span className='font-bold text-primary'>Email Address:</span> {user.email}</p>
+                            <p><span className='font-bold text-primary'>Email Address:</span> {user?.email}</p>
 
-                            <p><span className='font-bold text-primary'>Education:</span> {myProfile.education}</p>
+                            <p><span className='font-bold text-primary'>Education:</span> {myProfile?.education}</p>
 
-                            <p><span className='font-bold text-primary'>Location:</span> {myProfile.location}</p>
+                            <p><span className='font-bold text-primary'>Location:</span> {myProfile?.location}</p>
 
-                            <p><span className='font-bold text-primary'>Phone No:</span> {myProfile.PhoneNo}</p>
+                            <p><span className='font-bold text-primary'>Phone No:</span> {myProfile?.PhoneNo}</p>
 
-                            <p><span className='font-bold text-primary'>LinkedIn Profile Link:</span> <span className='text-blue-700'> <a href={myProfile.linkedin}> {myProfile.linkedin}</a></span>
+                            <p><span className='font-bold text-primary'>LinkedIn Profile Link:</span> <span className='text-blue-700'> <a href={myProfile?.linkedin}> {myProfile?.linkedin}</a></span>
                             </p>
 
-                            <p><span className='font-bold text-primary'>Blog Site Link:</span> <span className='text-blue-700'> <a href={myProfile.blogsite}> {myProfile.blogsite}</a></span></p>
+                            <p><span className='font-bold text-primary'>Blog Site Link:</span> <span className='text-blue-700'> <a href={myProfile?.blogsite}> {myProfile?.blogsite}</a></span></p>
                         </div>
                     </div>
 
@@ -91,7 +91,7 @@ const MyProfile = () => {
                                     </label>
                                     <input
                                         type="text"
-                                        value={user.displayName} readOnly
+                                        value={user?.displayName} readOnly
                                         className="input input-bordered w-full max-w-xs lg:max-w-sm h-10"
                                         {...register("name")}
                                     />
@@ -103,7 +103,7 @@ const MyProfile = () => {
                                     </label>
                                     <input
                                         type="email"
-                                        value={user.email} readOnly
+                                        value={user?.email} readOnly
                                         className="input input-bordered w-full max-w-xs lg:max-w-sm h-10"
                                         {...register("email")}
                                     />
@@ -125,7 +125,7 @@ const MyProfile = () => {
                                         })}
                                     />
                                     <label className="label">
-                                        {errors.education?.type === 'required' && <span className="label-text-alt text-red-500">{errors.education.message}</span>}
+                                        {errors?.education?.type === 'required' && <span className="label-text-alt text-red-500">{errors.education?.message}</span>}
                                     </label>
                                 </div>
 
@@ -145,7 +145,7 @@ const MyProfile = () => {
                                         })}
                                     />
                                     <label className="label">
-                                        {errors.location?.type === 'required' && <span className="label-text-alt text-red-500">{errors.location.message}</span>}
+                                        {errors?.location?.type === 'required' && <span className="label-text-alt text-red-500">{errors.location?.message}</span>}
                                     </label>
                                 </div>
 
@@ -165,7 +165,7 @@ const MyProfile = () => {
                                         })}
                                     />
                                     <label className="label">
-                                        {errors.phone?.type === 'required' && <span className="label-text-alt text-red-500">{errors.phone.message}</span>}
+                                        {errors?.phone?.type === 'required' && <span className="label-text-alt text-red-500">{errors.phone?.message}</span>}
                                     </label>
                                 </div>
 
@@ -185,7 +185,7 @@ const MyProfile = () => {
                                         })}
                                     />
                                     <label className="label">
-                                        {errors.linkedin?.type === 'required' && <span className="label-text-alt text-red-500">{errors.linkedin.message}</span>}
+                                        {errors?.linkedin?.type === 'required' && <span className="label-text-alt text-red-500">{errors.linkedin?.message}</span>}
                                     </label>
                                 </div>
 
