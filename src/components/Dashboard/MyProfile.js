@@ -59,12 +59,19 @@ const MyProfile = () => {
                     <div class="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
                         <div class="card-body text-lg">
                             <h2><span className='font-bold text-primary'>Name:</span> {user.displayName}</h2>
+
                             <p><span className='font-bold text-primary'>Email Address:</span> {user.email}</p>
+
                             <p><span className='font-bold text-primary'>Education:</span> {myProfile.education}</p>
+
                             <p><span className='font-bold text-primary'>Location:</span> {myProfile.location}</p>
+
                             <p><span className='font-bold text-primary'>Phone No:</span> {myProfile.PhoneNo}</p>
-                            <p><span className='font-bold text-primary'>LinkedIn Profile Link:</span> <span className='text-blue-700'>{myProfile.linkedin}</span></p>
-                            <p><span className='font-bold text-primary'>Blog Site Link:</span> <span className='text-blue-700'>{myProfile.blogsite}</span></p>
+
+                            <p><span className='font-bold text-primary'>LinkedIn Profile Link:</span> <span className='text-blue-700'> <a href={myProfile.linkedin}> {myProfile.linkedin}</a></span>
+                            </p>
+
+                            <p><span className='font-bold text-primary'>Blog Site Link:</span> <span className='text-blue-700'> <a href={myProfile.blogsite}> {myProfile.blogsite}</a></span></p>
                         </div>
                     </div>
 
