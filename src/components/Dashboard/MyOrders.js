@@ -45,8 +45,8 @@ const MyOrders = () => {
                             <th></th>
                             <th>Name</th>
                             <th>Product Name</th>
+                            <th>Order Quantity</th>
                             <th>Total Price</th>
-                            <th>Quantity</th>
                             <th>Payment Status</th>
                             <th>Action</th>
                         </tr>
@@ -57,14 +57,14 @@ const MyOrders = () => {
                                 <th>{index + 1}</th>
                                 <td>{myOrder.customerName}</td>
                                 <td>{myOrder.orderName}</td>
-                                <td>${myOrder.orderPrice}</td>
                                 <td>{myOrder.orderQuantity}</td>
+                                <td>${myOrder.orderPrice}</td>
                                 <td>
                                     {
                                         myOrder.paid && <span className='text-success text-green-700'>Paid</span>
                                     }
                                     {
-                                        !myOrder.paid && <span className='text-red-800'>Not paid</span>
+                                        !myOrder.paid && <span className='text-red-800'>Unpaid</span>
                                     }
                                 </td>
                                 <td>
@@ -74,13 +74,6 @@ const MyOrders = () => {
 
                                             <Link to={``}><button class="btn btn-error btn-xs text-white ml-3">Cancel</button></Link></>
                                     }
-
-                                    {
-                                        /*  {
-                                            myOrder.paid && <span className='text-success'>Paid</span>
-                                        } */
-                                    }
-
                                     {
                                         myOrder.paid && <span className='text-green-700'>Transaction Id: {myOrder.transactionId}</span>
                                     }

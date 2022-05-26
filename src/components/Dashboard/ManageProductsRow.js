@@ -13,7 +13,7 @@ const ManageProductsRow = ({ product, index, refetch, setConfirmDelete }) => {
                 </div>
             </div></td>
             <td>{name}</td>
-            <td>{price}</td>
+            <td>${price}</td>
             <td>
                 <label onClick={() => setConfirmDelete(product)} for="confirm-delete-modal" class="btn btn-error btn-xs text-white">Delete</label>
             </td>
