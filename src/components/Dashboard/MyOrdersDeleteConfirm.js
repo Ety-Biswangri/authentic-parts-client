@@ -7,7 +7,7 @@ const MyOrdersDeleteConfirm = ({ OrderConfirmDelete, setOrderConfirmDelete, refe
     const { _id, orderName } = OrderConfirmDelete;
 
     const handleDelete = id => {
-        fetch(`http://localhost:5000/order/${_id}`, {
+        fetch(`https://intense-river-93900.herokuapp.com/order/${_id}`, {
             method: 'DELETE',
             headers: {
                 authorization: `Bearer ${localStorage.getItem('accessToken')}`

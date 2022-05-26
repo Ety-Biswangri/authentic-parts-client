@@ -9,7 +9,7 @@ const ManageOrders = () => {
 
     const [confirmDelete, setConfirmDelete] = useState(null);
 
-    const { data: allOrders, isLoading, error, refetch } = useQuery('allOrders', () => fetch('http://localhost:5000/orders', {
+    const { data: allOrders, isLoading, error, refetch } = useQuery('allOrders', () => fetch('https://intense-river-93900.herokuapp.com/orders', {
         method: 'GET',
         headers: {
             'authorization': `Bearer ${localStorage.getItem('accessToken')}`
