@@ -15,7 +15,7 @@ const Purchase = () => {
 
     const { register, formState: { errors }, handleSubmit, reset } = useForm();
 
-    const [agree, setAgree] = useState(false);
+    // const [agree, setAgree] = useState(false);
 
     const url = `https://intense-river-93900.herokuapp.com/parts/${id}`;
 

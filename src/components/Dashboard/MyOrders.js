@@ -1,38 +1,39 @@
 import { signOut } from 'firebase/auth';
 import React, { useEffect, useState } from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
+import { useQuery } from 'react-query';
 import { Link, useNavigate } from 'react-router-dom';
 import auth from '../../firebase.init';
+import Loading from '../Shared/Loading/Loading';
+import MyOrdersDeleteConfirm from './MyOrdersDeleteConfirm';
 
 const MyOrders = () => {
     const navigate = useNavigate();
     const [user, loading, error] = useAuthState(auth);
-    const [myOrders, setMyOrders] = useState([]);
 
-    // console.log(myOrders)
+    const [OrderConfirmDelete, setOrderConfirmDelete] = useState(null);
 
+    const url = `https://intense-river-93900.herokuapp.com/order?customerEmail=${user?.email}`;
 
-    useEffect(() => {
-        if (user) {
-            fetch(`https://intense-river-93900.herokuapp.com/order?customerEmail=${user.email}`, {
-                method: 'GET',
-                headers: {
-                    'authorization': `Bearer ${localStorage.getItem('accessToken')}`
-                }
-            })
-                .then(res => {
-                    if (res.status === 401 || res.status === 403) {
-                        signOut(auth);
-                        localStorage.removeItem('accessToken');
-                        navigate('/');
-                    }
-                    return res.json()
-                })
-                .then(data => {
-                    setMyOrders(data);
-                })
+    const { data: myOrders, isLoading, refetch } = useQuery(['myOrders', user.email], () => fetch(url, {
+        method: 'GET',
+        headers: {
+            'authorization': `Bearer ${localStorage.getItem('accessToken')}`
         }
-    }, [user]);
+    })
+        .then(res => {
+            if (res.status === 401 || res.status === 403) {
+                signOut(auth);
+                localStorage.removeItem('accessToken');
+                navigate('/');
+            }
+            return res.json()
+        }));
+
+    if (isLoading) {
+        return <Loading></Loading>;
+    }
+
 
     return (
         <div className='my-8'>
@@ -61,7 +62,7 @@ const MyOrders = () => {
                                 <td>${myOrder.orderPrice}</td>
                                 <td>
                                     {
-                                        myOrder.paid && <span className='text-success text-green-700'>Paid</span>
+                                        myOrder.paid && <span className='text-green-700'>Paid</span>
                                     }
                                     {
                                         !myOrder.paid && <span className='text-red-800'>Unpaid</span>
@@ -72,7 +73,10 @@ const MyOrders = () => {
                                         !myOrder.paid && <>
                                             <Link to={`/dashboard/payment/${myOrder._id}`}><button class="btn btn-success btn-xs text-white">Pay</button></Link>
 
-                                            <Link to={``}><button class="btn btn-error btn-xs text-white ml-3">Cancel</button></Link></>
+                                            {/*  <Link to={``}><button class="btn btn-error btn-xs text-white ml-3">Cancel</button></Link> */}
+
+                                            <label onClick={() => setOrderConfirmDelete(myOrder)} for="confirm-delete-modal" class="btn btn-error btn-xs text-white">Delete</label>
+                                        </>
                                     }
                                     {
                                         myOrder.paid && <span className='text-green-700'>Transaction Id: {myOrder.transactionId}</span>
@@ -83,7 +87,10 @@ const MyOrders = () => {
                     </tbody>
                 </table>
             </div>
-        </div>
+            {
+                OrderConfirmDelete && <MyOrdersDeleteConfirm OrderConfirmDelete={OrderConfirmDelete} refetch={refetch} setOrderConfirmDelete={setOrderConfirmDelete}></MyOrdersDeleteConfirm>
+            }
+        </div >
     );
 };
 
