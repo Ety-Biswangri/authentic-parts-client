@@ -2,14 +2,15 @@
 
 Live Site Link: [Authentic Parts](https://authentic-parts.web.app/)
 
-## About This Project:
+## Project Features and Functionalities:
 
-* This website is based on Microwave Oven Parts Manufacturing.
-* Users can Sign Up and Login to this website using email address and password.
-* Users can also Sign Up and Login by using Google Account.
-* Users can see the different financial coaching services with the service price and description.
-* Users can book the coaching services.
-* Blog Feature is also implemented in this project.
+### Client Side:
+* User can Register and Login to this website using email address and password or using Google Account
+* There are two types of users: Admin and general users or customers
+* After loggin in admin can see the dashboard route where he/she can update profile, can manage client orders
+* Admin can add or delete a product, also can add a new admin for this website.
+* Customers can update their profile, Purchase products and can make payment using credit card.
+* Customers can add a review for a product.
 
 ### Technologies Used:
 * Tailwind CSS
