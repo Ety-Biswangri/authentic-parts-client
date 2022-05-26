@@ -50,21 +50,21 @@ const MyProfile = () => {
 
     return (
         <div>
-            <h2 className='text-secondary text-xl text-center mb-3 mt-10 underline font-semibold'>My Profile</h2>
+            <h2 className='text-secondary text-xl text-center mb-6 mt-6 underline font-semibold'>My Profile</h2>
 
-            <div class="hero bg-base-200">
+            <div class="hero">
                 <div class="hero-content grid grid-cols-1 lg:grid-cols-2">
 
 
                     <div class="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
-                        <div class="card-body">
-                            <h2>Name: {user.displayName}</h2>
-                            <p>Email Address: {user.email}</p>
-                            <p>Email Address: {myProfile.education}</p>
-                            <p>Location: {myProfile.location}</p>
-                            <p>Phone No: {myProfile.PhoneNo}</p>
-                            <p>LinkedIn Profile Link: {myProfile.linkedin}</p>
-                            <p>Blog Site Link: {myProfile.blogsite}</p>
+                        <div class="card-body text-lg">
+                            <h2><span className='font-bold text-primary'>Name:</span> {user.displayName}</h2>
+                            <p><span className='font-bold text-primary'>Email Address:</span> {user.email}</p>
+                            <p><span className='font-bold text-primary'>Education:</span> {myProfile.education}</p>
+                            <p><span className='font-bold text-primary'>Location:</span> {myProfile.location}</p>
+                            <p><span className='font-bold text-primary'>Phone No:</span> {myProfile.PhoneNo}</p>
+                            <p><span className='font-bold text-primary'>LinkedIn Profile Link:</span> <span className='text-blue-700'>{myProfile.linkedin}</span></p>
+                            <p><span className='font-bold text-primary'>Blog Site Link:</span> <span className='text-blue-700'>{myProfile.blogsite}</span></p>
                         </div>
                     </div>
 
@@ -188,7 +188,7 @@ const MyProfile = () => {
                                     />
                                 </div>
 
-                                <input className='btn w-full lg:mt-8 max-w-xs lg:max-w-sm h-5 text-white' type="submit" value="Add" />
+                                <input className='btn w-full lg:mt-8 max-w-xs lg:max-w-sm h-5 text-white' type="submit" value="Update" />
                             </form>
                         </div>
                     </div>
