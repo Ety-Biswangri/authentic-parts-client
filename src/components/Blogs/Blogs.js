@@ -26,21 +26,7 @@ const Blogs = () => {
                 <div class="card lg:card-side bg-base-100 shadow-md mb-10">
                     <div class="card-body">
                         <div className='text-justify'>
-                            <h2 class="lg:text-2xl text-lg font-bold mb-5">2. How will you improve the performance of a React Application?</h2>
-
-                            <p className='lg:text-xl lg:mb-2 mb-4'>Some of the ways of improving the performance of a React Application are given below: </p>
-                            <p className='lg:text-xl lg:mb-2 mb-4'>1. By keeping component state local where necessary</p>
-                            <p className='lg:text-xl lg:mb-2 mb-4'>2. By dependency optimization</p>
-                            <p className='lg:text-xl lg:mb-2 mb-4'>3. By using immutable data structures</p>
-                            <p className='lg:text-xl lg:mb-2 mb-4'>4. By avoiding anonymous functions</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="card lg:card-side bg-base-100 shadow-md mb-10">
-                    <div class="card-body">
-                        <div className='text-justify'>
-                            <h2 class="lg:text-2xl text-lg font-bold mb-5">3. What are the different ways to manage a state in a React application?</h2>
+                            <h2 class="lg:text-2xl text-lg font-bold mb-5">2. What are the different ways to manage a state in a React application?</h2>
 
                             <p className='lg:text-xl lg:mb-2 mb-4'>The Four basic ways to manage a state in a React Applications are: 1. Local, 2. Global, 3. Server and 4. URL</p>
 
@@ -58,12 +44,32 @@ const Blogs = () => {
                 <div class="card lg:card-side bg-base-100 shadow-md mb-10">
                     <div class="card-body">
                         <div className='text-justify'>
-                            <h2 class="text-2xl font-bold mb-3">1 .Ety Biswangri</h2>
+                            <h2 class="lg:text-2xl text-lg font-bold mb-5">3. What is a unit test? Why should write unit tests?</h2>
 
-                            <p className='text-xl font-bold lg:mb-2 mb-4'>Technical Skills:</p>
+                            <p className='lg:text-xl lg:mb-2 mb-4'>Unit testing is a type of software testing that tests individual units or components of software.</p>
+
+                            <p className='lg:text-xl lg:mb-2 mb-4'>Importance of unit tests:</p>
+
+                            <p className='lg:text-xl lg:mb-2 mb-4'>Unit test assists developers in analyzing the testing code base and allowing them to make rapid adjustments. Unit tests that are well-written serve as project documentation. Unit tests save time and money by catching bugs early in the development cycle. It reduces code complexity</p>
                         </div>
                     </div>
                 </div>
+
+                <div class="card lg:card-side bg-base-100 shadow-md mb-10">
+                    <div class="card-body">
+                        <div className='text-justify'>
+                            <h2 class="lg:text-2xl text-lg font-bold mb-5">4. How will you improve the performance of a React Application?</h2>
+
+                            <p className='lg:text-xl lg:mb-2 mb-4'>Some of the ways of improving the performance of a React Application are given below: </p>
+                            <p className='lg:text-xl lg:mb-2 mb-4'>1. By keeping component state local where necessary</p>
+                            <p className='lg:text-xl lg:mb-2 mb-4'>2. By dependency optimization</p>
+                            <p className='lg:text-xl lg:mb-2 mb-4'>3. By using immutable data structures</p>
+                            <p className='lg:text-xl lg:mb-2 mb-4'>4. By avoiding anonymous functions</p>
+                        </div>
+                    </div>
+                </div>
+
+
             </div>
         </div >
     );
