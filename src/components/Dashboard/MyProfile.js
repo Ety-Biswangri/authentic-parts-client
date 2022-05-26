@@ -22,12 +22,13 @@ const MyProfile = () => {
             blogsite: data.blogsite
         }
 
-        const url = `http://localhost:5000/profile/${user?.email}`;
+        const url = `https://intense-river-93900.herokuapp.com/profile/${user?.email}`;
 
         fetch(url, {
             method: "PUT",
             headers: {
-                'content-type': 'application/json'
+                'content-type': 'application/json',
+                'authorization': `Bearer ${localStorage.getItem('accessToken')}`
             },
             body: JSON.stringify(profile)
         })
@@ -41,7 +42,12 @@ const MyProfile = () => {
     }
 
     useEffect(() => {
-        fetch(`http://localhost:5000/profile/${user?.email}`)
+        fetch(`https://intense-river-93900.herokuapp.com/profile/${user?.email}`, {
+            method: 'GET',
+            headers: {
+                'authorization': `Bearer ${localStorage.getItem('accessToken')}`
+            }
+        })
             .then(res => res.json())
             .then(data => setMyProfile(data));
     }, [user.email, isReload]);
