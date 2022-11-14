@@ -13,7 +13,7 @@ const Payment = () => {
 
     const { id } = useParams();
 
-    const url = `https://intense-river-93900.herokuapp.com/order/${id}`;
+    const url = `https://authentic-parts.onrender.com/order/${id}`;
 
     const { data: order, isLoading } = useQuery(['order', id], () => fetch(url, {
         method: 'GET',

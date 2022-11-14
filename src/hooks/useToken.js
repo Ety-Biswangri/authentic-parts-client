@@ -9,7 +9,7 @@ const useToken = (user) => {
         const currentUser = { email: email };
 
         if (email) {
-            fetch(`https://intense-river-93900.herokuapp.com/user/${email}`, {
+            fetch(`https://authentic-parts.onrender.com/user/${email}`, {
                 method: "PUT",
                 headers: {
                     'content-type': 'application/json'

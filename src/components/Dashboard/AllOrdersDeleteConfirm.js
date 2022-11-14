@@ -6,7 +6,7 @@ const AllOrdersDeleteConfirm = ({ confirmDelete, refetch, setConfirmDelete }) =>
     const { _id, orderName, customerName } = confirmDelete;
 
     const handleCancel = id => {
-        fetch(`https://intense-river-93900.herokuapp.com/orders/${_id}`, {
+        fetch(`https://authentic-parts.onrender.com/orders/${_id}`, {
             method: 'DELETE',
             headers: {
                 authorization: `Bearer ${localStorage.getItem('accessToken')}`

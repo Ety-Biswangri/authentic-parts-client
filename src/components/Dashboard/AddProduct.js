@@ -8,7 +8,7 @@ const AddProduct = () => {
 
     const onSubmit = data => {
         console.log(data);
-        fetch(`https://intense-river-93900.herokuapp.com/parts`, {
+        fetch(`https://authentic-parts.onrender.com/parts`, {
             method: 'POST',
             headers: {
                 'Content-type': 'application/json',

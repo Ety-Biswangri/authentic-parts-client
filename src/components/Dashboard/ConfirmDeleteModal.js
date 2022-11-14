@@ -6,7 +6,7 @@ const ConfirmDeleteModal = ({ confirmDelete, refetch, setConfirmDelete }) => {
     const { _id, name } = confirmDelete;
 
     const handleDelete = id => {
-        fetch(`https://intense-river-93900.herokuapp.com/parts/${id}`, {
+        fetch(`https://authentic-parts.onrender.com/parts/${id}`, {
             method: 'DELETE',
             headers: {
                 authorization: `Bearer ${localStorage.getItem('accessToken')}`

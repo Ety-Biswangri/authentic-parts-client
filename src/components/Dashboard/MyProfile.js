@@ -22,7 +22,7 @@ const MyProfile = () => {
             blogsite: data.blogsite
         }
 
-        const url = `https://intense-river-93900.herokuapp.com/profile/${user?.email}`;
+        const url = `https://authentic-parts.onrender.com/profile/${user?.email}`;
 
         fetch(url, {
             method: "PUT",
@@ -42,7 +42,7 @@ const MyProfile = () => {
     }
 
     useEffect(() => {
-        fetch(`https://intense-river-93900.herokuapp.com/profile/${user?.email}`, {
+        fetch(`https://authentic-parts.onrender.com/profile/${user?.email}`, {
             method: 'GET',
             headers: {
                 'authorization': `Bearer ${localStorage.getItem('accessToken')}`

@@ -13,7 +13,7 @@ const MyOrders = () => {
 
     const [OrderConfirmDelete, setOrderConfirmDelete] = useState(null);
 
-    const url = `https://intense-river-93900.herokuapp.com/order?customerEmail=${user?.email}`;
+    const url = `https://authentic-parts.onrender.com/order?customerEmail=${user?.email}`;
 
     const { data: myOrders, isLoading, refetch } = useQuery(['myOrders', user.email], () => fetch(url, {
         method: 'GET',

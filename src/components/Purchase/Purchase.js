@@ -17,7 +17,7 @@ const Purchase = () => {
 
     // const [agree, setAgree] = useState(false);
 
-    const url = `https://intense-river-93900.herokuapp.com/parts/${id}`;
+    const url = `https://authentic-parts.onrender.com/parts/${id}`;
 
     const { data: product, isLoading } = useQuery(['purchase', id], () => fetch(url, {
         method: 'GET',
@@ -50,7 +50,7 @@ const Purchase = () => {
 
         console.log(order);
 
-        fetch('https://intense-river-93900.herokuapp.com/order', {
+        fetch('https://authentic-parts.onrender.com/order', {
             method: "POST",
             headers: {
                 'content-type': 'application/json'

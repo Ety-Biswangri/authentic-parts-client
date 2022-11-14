@@ -19,7 +19,7 @@ const AddReview = () => {
             customerName: user.displayName
         }
 
-        fetch(`https://intense-river-93900.herokuapp.com/review`, {
+        fetch(`https://authentic-parts.onrender.com/review`, {
             method: 'POST',
             headers: {
                 'Content-type': 'application/json',
